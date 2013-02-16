@@ -2,7 +2,7 @@
 
 ## x-callback-url made easy
 
-Inter-App Communication (**IAC** from now on), is a framework that allows your iOS app to communicate, very easily, with other iOS apps installed in the device that supports the [**x-callback-url**](http://x-callback-url.com/) protocol. With **IAC** you can also add an **x-callback-url** **API** to your app in a very easy and intuitive way.
+Inter-App Communication, **IAC** from now on, is a framework that allows your iOS app to communicate, very easily, with other iOS apps installed in the device that supports the [**x-callback-url**](http://x-callback-url.com/) protocol. With **IAC** you can also add an **x-callback-url** **API** to your app in a very easy and intuitive way.
 
 **IAC** currently supports the **x-callback-url** [1.0 DRAFT specification](http://x-callback-url.com/specifications/).
 
@@ -26,6 +26,7 @@ You can also use, if available, client subclasses for the app you are calling. W
 For example, to add a url to Instapaper from your app, you can do:
 
 * Without specific client class:
+
 ```objective-c
 #import "IACClient.h"
 
@@ -34,6 +35,7 @@ IACClient *client = [IACClient clientWithURLScheme:@"x-callback-instapaper"];
 ```
 
 * With the client class specific for Instapaper:
+
 ```objective-c
 #import "InstapaperIACClient.h"
 
