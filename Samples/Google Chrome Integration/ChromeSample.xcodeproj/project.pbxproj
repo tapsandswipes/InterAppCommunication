@@ -1,0 +1,360 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A9D569E516CB983B00BD22D1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D569E416CB983B00BD22D1 /* UIKit.framework */; };
+		A9D569E716CB983B00BD22D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D569E616CB983B00BD22D1 /* Foundation.framework */; };
+		A9D569E916CB983B00BD22D1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D569E816CB983B00BD22D1 /* CoreGraphics.framework */; };
+		A9D569EF16CB983B00BD22D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9D569ED16CB983B00BD22D1 /* InfoPlist.strings */; };
+		A9D569F116CB983B00BD22D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D569F016CB983B00BD22D1 /* main.m */; };
+		A9D569F516CB983B00BD22D1 /* CSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D569F416CB983B00BD22D1 /* CSAppDelegate.m */; };
+		A9D569F716CB983B00BD22D1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A9D569F616CB983B00BD22D1 /* Default.png */; };
+		A9D569F916CB983B00BD22D1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9D569F816CB983B00BD22D1 /* Default@2x.png */; };
+		A9D569FB16CB983B00BD22D1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9D569FA16CB983B00BD22D1 /* Default-568h@2x.png */; };
+		A9D569FE16CB983B00BD22D1 /* CSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D569FD16CB983B00BD22D1 /* CSViewController.m */; };
+		A9D56A0116CB983B00BD22D1 /* CSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9D569FF16CB983B00BD22D1 /* CSViewController.xib */; };
+		A9D56A1116CB987800BD22D1 /* IACClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D56A0916CB987800BD22D1 /* IACClient.m */; };
+		A9D56A1216CB987800BD22D1 /* IACManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D56A0C16CB987800BD22D1 /* IACManager.m */; };
+		A9D56A1316CB987800BD22D1 /* IACRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D56A0E16CB987800BD22D1 /* IACRequest.m */; };
+		A9D56A1416CB987800BD22D1 /* NSString+IACExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D56A1016CB987800BD22D1 /* NSString+IACExtensions.m */; };
+		A9D56A1716CB989700BD22D1 /* GoogleChromeIACClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D56A1616CB989700BD22D1 /* GoogleChromeIACClient.m */; };
+		A9D56A1A16CBA96700BD22D1 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A9D56A1816CBA96700BD22D1 /* Icon.png */; };
+		A9D56A1B16CBA96700BD22D1 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9D56A1916CBA96700BD22D1 /* Icon@2x.png */; };
+		A9D56A3216CE2B8000BD22D1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D56A3116CE2B8000BD22D1 /* StoreKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A9D569E116CB983B00BD22D1 /* ChromeSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChromeSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9D569E416CB983B00BD22D1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A9D569E616CB983B00BD22D1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A9D569E816CB983B00BD22D1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A9D569EC16CB983B00BD22D1 /* ChromeSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChromeSample-Info.plist"; sourceTree = "<group>"; };
+		A9D569EE16CB983B00BD22D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A9D569F016CB983B00BD22D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A9D569F216CB983B00BD22D1 /* ChromeSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChromeSample-Prefix.pch"; sourceTree = "<group>"; };
+		A9D569F316CB983B00BD22D1 /* CSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSAppDelegate.h; sourceTree = "<group>"; };
+		A9D569F416CB983B00BD22D1 /* CSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSAppDelegate.m; sourceTree = "<group>"; };
+		A9D569F616CB983B00BD22D1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A9D569F816CB983B00BD22D1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A9D569FA16CB983B00BD22D1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A9D569FC16CB983B00BD22D1 /* CSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSViewController.h; sourceTree = "<group>"; };
+		A9D569FD16CB983B00BD22D1 /* CSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSViewController.m; sourceTree = "<group>"; };
+		A9D56A0016CB983B00BD22D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CSViewController.xib; sourceTree = "<group>"; };
+		A9D56A0816CB987800BD22D1 /* IACClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACClient.h; sourceTree = "<group>"; };
+		A9D56A0916CB987800BD22D1 /* IACClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACClient.m; sourceTree = "<group>"; };
+		A9D56A0A16CB987800BD22D1 /* IACDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACDelegate.h; sourceTree = "<group>"; };
+		A9D56A0B16CB987800BD22D1 /* IACManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACManager.h; sourceTree = "<group>"; };
+		A9D56A0C16CB987800BD22D1 /* IACManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACManager.m; sourceTree = "<group>"; };
+		A9D56A0D16CB987800BD22D1 /* IACRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACRequest.h; sourceTree = "<group>"; };
+		A9D56A0E16CB987800BD22D1 /* IACRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACRequest.m; sourceTree = "<group>"; };
+		A9D56A0F16CB987800BD22D1 /* NSString+IACExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IACExtensions.h"; sourceTree = "<group>"; };
+		A9D56A1016CB987800BD22D1 /* NSString+IACExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IACExtensions.m"; sourceTree = "<group>"; };
+		A9D56A1516CB989700BD22D1 /* GoogleChromeIACClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoogleChromeIACClient.h; path = ../AppClients/GoogleChromeIACClient.h; sourceTree = "<group>"; };
+		A9D56A1616CB989700BD22D1 /* GoogleChromeIACClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoogleChromeIACClient.m; path = ../AppClients/GoogleChromeIACClient.m; sourceTree = "<group>"; };
+		A9D56A1816CBA96700BD22D1 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		A9D56A1916CBA96700BD22D1 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		A9D56A3116CE2B8000BD22D1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9D569DE16CB983B00BD22D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9D56A3216CE2B8000BD22D1 /* StoreKit.framework in Frameworks */,
+				A9D569E516CB983B00BD22D1 /* UIKit.framework in Frameworks */,
+				A9D569E716CB983B00BD22D1 /* Foundation.framework in Frameworks */,
+				A9D569E916CB983B00BD22D1 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A9D569D816CB983B00BD22D1 = {
+			isa = PBXGroup;
+			children = (
+				A9D56A0716CB987800BD22D1 /* InterAppCommunication */,
+				A9D569EA16CB983B00BD22D1 /* ChromeSample */,
+				A9D569E316CB983B00BD22D1 /* Frameworks */,
+				A9D569E216CB983B00BD22D1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A9D569E216CB983B00BD22D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9D569E116CB983B00BD22D1 /* ChromeSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9D569E316CB983B00BD22D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9D56A3116CE2B8000BD22D1 /* StoreKit.framework */,
+				A9D569E416CB983B00BD22D1 /* UIKit.framework */,
+				A9D569E616CB983B00BD22D1 /* Foundation.framework */,
+				A9D569E816CB983B00BD22D1 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9D569EA16CB983B00BD22D1 /* ChromeSample */ = {
+			isa = PBXGroup;
+			children = (
+				A9D569F316CB983B00BD22D1 /* CSAppDelegate.h */,
+				A9D569F416CB983B00BD22D1 /* CSAppDelegate.m */,
+				A9D569FC16CB983B00BD22D1 /* CSViewController.h */,
+				A9D569FD16CB983B00BD22D1 /* CSViewController.m */,
+				A9D569FF16CB983B00BD22D1 /* CSViewController.xib */,
+				A9D569EB16CB983B00BD22D1 /* Supporting Files */,
+			);
+			path = ChromeSample;
+			sourceTree = "<group>";
+		};
+		A9D569EB16CB983B00BD22D1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9D569EC16CB983B00BD22D1 /* ChromeSample-Info.plist */,
+				A9D569ED16CB983B00BD22D1 /* InfoPlist.strings */,
+				A9D569F016CB983B00BD22D1 /* main.m */,
+				A9D569F216CB983B00BD22D1 /* ChromeSample-Prefix.pch */,
+				A9D569F616CB983B00BD22D1 /* Default.png */,
+				A9D569F816CB983B00BD22D1 /* Default@2x.png */,
+				A9D569FA16CB983B00BD22D1 /* Default-568h@2x.png */,
+				A9D56A1816CBA96700BD22D1 /* Icon.png */,
+				A9D56A1916CBA96700BD22D1 /* Icon@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9D56A0716CB987800BD22D1 /* InterAppCommunication */ = {
+			isa = PBXGroup;
+			children = (
+				A9D56A1516CB989700BD22D1 /* GoogleChromeIACClient.h */,
+				A9D56A1616CB989700BD22D1 /* GoogleChromeIACClient.m */,
+				A9D56A0816CB987800BD22D1 /* IACClient.h */,
+				A9D56A0916CB987800BD22D1 /* IACClient.m */,
+				A9D56A0A16CB987800BD22D1 /* IACDelegate.h */,
+				A9D56A0B16CB987800BD22D1 /* IACManager.h */,
+				A9D56A0C16CB987800BD22D1 /* IACManager.m */,
+				A9D56A0D16CB987800BD22D1 /* IACRequest.h */,
+				A9D56A0E16CB987800BD22D1 /* IACRequest.m */,
+				A9D56A0F16CB987800BD22D1 /* NSString+IACExtensions.h */,
+				A9D56A1016CB987800BD22D1 /* NSString+IACExtensions.m */,
+			);
+			name = InterAppCommunication;
+			path = ../../InterAppCommunication;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9D569E016CB983B00BD22D1 /* ChromeSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9D56A0416CB983B00BD22D1 /* Build configuration list for PBXNativeTarget "ChromeSample" */;
+			buildPhases = (
+				A9D569DD16CB983B00BD22D1 /* Sources */,
+				A9D569DE16CB983B00BD22D1 /* Frameworks */,
+				A9D569DF16CB983B00BD22D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChromeSample;
+			productName = ChromeSample;
+			productReference = A9D569E116CB983B00BD22D1 /* ChromeSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9D569D916CB983B00BD22D1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CS;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Antonio Cabezuelo Vivo";
+			};
+			buildConfigurationList = A9D569DC16CB983B00BD22D1 /* Build configuration list for PBXProject "ChromeSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A9D569D816CB983B00BD22D1;
+			productRefGroup = A9D569E216CB983B00BD22D1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9D569E016CB983B00BD22D1 /* ChromeSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9D569DF16CB983B00BD22D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9D569EF16CB983B00BD22D1 /* InfoPlist.strings in Resources */,
+				A9D569F716CB983B00BD22D1 /* Default.png in Resources */,
+				A9D569F916CB983B00BD22D1 /* Default@2x.png in Resources */,
+				A9D569FB16CB983B00BD22D1 /* Default-568h@2x.png in Resources */,
+				A9D56A0116CB983B00BD22D1 /* CSViewController.xib in Resources */,
+				A9D56A1A16CBA96700BD22D1 /* Icon.png in Resources */,
+				A9D56A1B16CBA96700BD22D1 /* Icon@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9D569DD16CB983B00BD22D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9D569F116CB983B00BD22D1 /* main.m in Sources */,
+				A9D569F516CB983B00BD22D1 /* CSAppDelegate.m in Sources */,
+				A9D569FE16CB983B00BD22D1 /* CSViewController.m in Sources */,
+				A9D56A1116CB987800BD22D1 /* IACClient.m in Sources */,
+				A9D56A1216CB987800BD22D1 /* IACManager.m in Sources */,
+				A9D56A1316CB987800BD22D1 /* IACRequest.m in Sources */,
+				A9D56A1416CB987800BD22D1 /* NSString+IACExtensions.m in Sources */,
+				A9D56A1716CB989700BD22D1 /* GoogleChromeIACClient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A9D569ED16CB983B00BD22D1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9D569EE16CB983B00BD22D1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A9D569FF16CB983B00BD22D1 /* CSViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9D56A0016CB983B00BD22D1 /* en */,
+			);
+			name = CSViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9D56A0216CB983B00BD22D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A9D56A0316CB983B00BD22D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9D56A0516CB983B00BD22D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChromeSample/ChromeSample-Prefix.pch";
+				INFOPLIST_FILE = "ChromeSample/ChromeSample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A9D56A0616CB983B00BD22D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChromeSample/ChromeSample-Prefix.pch";
+				INFOPLIST_FILE = "ChromeSample/ChromeSample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9D569DC16CB983B00BD22D1 /* Build configuration list for PBXProject "ChromeSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9D56A0216CB983B00BD22D1 /* Debug */,
+				A9D56A0316CB983B00BD22D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9D56A0416CB983B00BD22D1 /* Build configuration list for PBXNativeTarget "ChromeSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9D56A0516CB983B00BD22D1 /* Debug */,
+				A9D56A0616CB983B00BD22D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A9D569D916CB983B00BD22D1 /* Project object */;
+}
