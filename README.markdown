@@ -127,7 +127,7 @@ Within the directory `AppClients` you can find clients for some apps, copy the f
 
 If you have an app that already have an x-callback-url API, you can help other apps to communicate with your app by creating an `IACClient` subclass and share these classes with them.
 
-This way you can implement the exposed API as if the app where an internal component within the caller app. You can implement the methods with the required parameters and even make some validation before the call is made.
+This way you can implement the exposed API as if the app were an internal component within the caller app. You can implement the methods with the required parameters and even make some validation before the call is made.
 
 Inside the `AppClients` directory you can find all the client subclasses currently implemented. If you have implemented one for your own app, do not hesitate to contact me and I will add it to the repository. 
 
