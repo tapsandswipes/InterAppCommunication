@@ -77,107 +77,117 @@ typedef NS_ENUM(NSUInteger, IACResponseType) {
         return NO;
     }
     
-    // If the url is an x-callback-url compatible url we handle it
-    if ([url.host isEqualToString:kXCUHost]) {
-        NSString     *action     = [[url path] substringFromIndex:1];
-        NSDictionary *parameters = [url.query parseURLParams];
-        NSDictionary *actionParamters = [self removeProtocolParamsFromDictionary:parameters];
+    NSString *action = nil;
+    
+    BOOL isXCallBackURL = [url.host isEqualToString:kXCUHost];
+    
+    if (isXCallBackURL) { // Example: MYAPP://x-callback-url/ACTION_NAME?PARA1=VAL1(...)
+        action = [url.path substringFromIndex:1];
+    }
+    else { // Example: MYAPP://ACTION_NAME?PARA1=VAL1
+        action = url.host;
+    }
+
+    NSDictionary *parameters = [url.query parseURLParams];
+    NSDictionary *actionParameters = [self removeProtocolParamsFromDictionary:parameters];
+    
+    // Lets see if this is a response to a previous call
+    if ([action isEqualToString:kIACResponse]) {
+        NSString *requestID = parameters[kIACRequest];
         
-        
-        // Lets see if this is a response to a previous call
-        if ([action isEqualToString:kIACResponse]) {
-            NSString *requestID = parameters[kIACRequest];
+        IACRequest *request = sessions[requestID];
+        if (request) {
+            IACResponseType responseType = [parameters[kIACResponseType] intValue];
             
-            IACRequest *request = sessions[requestID];
-            if (request) {
-                IACResponseType responseType = [parameters[kIACResponseType] intValue];
-            
-                switch (responseType) {
-                    case IACResponseTypeSuccess:
-                        if (request.successCalback) {
-                            request.successCalback(actionParamters);
-                        }
-                        break;
+            switch (responseType) {
+                case IACResponseTypeSuccess:
+                    if (request.successCalback) {
+                        request.successCalback(actionParameters);
+                    }
+                    break;
+                    
+                case IACResponseTypeFailure:
+                    if (request.errorCalback) {
+                        NSInteger errorCode = [request.client NSErrorCodeForXCUErrorCode:parameters[kXCUErrorCode]];
+                        NSString *errorDomain = parameters[kIACErrorDomain] ? parameters[kIACErrorDomain] : IACClientErrorDomain;
+                        NSError *error = [NSError errorWithDomain:errorDomain
+                                                             code:errorCode
+                                                         userInfo:@{NSLocalizedDescriptionKey: parameters[kXCUErrorMessage]}];
                         
-                    case IACResponseTypeFailure:
-                        if (request.errorCalback) {
-                            NSInteger errorCode = [request.client NSErrorCodeForXCUErrorCode:parameters[kXCUErrorCode]];
-                            NSString *errorDomain = parameters[kIACErrorDomain] ? parameters[kIACErrorDomain] : IACClientErrorDomain;
-                            NSError *error = [NSError errorWithDomain:errorDomain
-                                                                 code:errorCode
-                                                             userInfo:@{NSLocalizedDescriptionKey: parameters[kXCUErrorMessage]}];
-                            
-                            request.errorCalback(error);
-                        }
-                        break;
-                        
-                    case IACResponseTypeCancel:
-                        if (request.successCalback) {
-                            request.successCalback(nil);
-                        }
-                        break;
-                        
-                    default:
-                        [sessions removeObjectForKey:requestID];
-                        return NO;
-                        break;
-                }
-            
-                [sessions removeObjectForKey:requestID];
-                return YES;
+                        request.errorCalback(error);
+                    }
+                    break;
+                    
+                case IACResponseTypeCancel:
+                    if (request.successCalback) {
+                        request.successCalback(nil);
+                    }
+                    break;
+                    
+                default:
+                    [sessions removeObjectForKey:requestID];
+                    return NO;
+                    break;
             }
             
-            return NO;
+            [sessions removeObjectForKey:requestID];
+            return YES;
         }
         
-        // Lets see if there is somebody that handles this action
-        if (actions[action] || [self.delegate supportsIACAction:action]) {
+        return NO;
+    }
+    
+    // Lets see if there is somebody that handles this action
+    if (actions[action] || [self.delegate supportsIACAction:action]) {
+        IACSuccessBlock success = ^(NSDictionary *returnParams, BOOL cancelled) {
+            if (cancelled) {
+                if (parameters[kXCUCancel]) {
+                    NSURL * url = [NSURL URLWithString:parameters[kXCUCancel]];
+                    NSLog(@"%@",url);
+                    [[UIApplication sharedApplication] openURL:url];
+                }
+            } else if (parameters[kXCUSuccess]) {
+                NSURL * url = [NSURL URLWithString:[parameters[kXCUSuccess] stringByAppendingURLParams:returnParams]];
+                NSLog(@"%@",url);
+                [[UIApplication sharedApplication] openURL:url];
+            }
+        };
         
-            IACSuccessBlock success = ^(NSDictionary *returnParams, BOOL cancelled) {
-                if (cancelled) {
-                    if (parameters[kXCUCancel]) {
-                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:parameters[kXCUCancel]]];
-                    }
-                } else if (parameters[kXCUSuccess]) {
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[parameters[kXCUSuccess] stringByAppendingURLParams:returnParams]]];
-                }
-            };
-            
-            IACFailureBlock failure = ^(NSError *error) {
-                if (parameters[kXCUError]) {
-                    NSDictionary *errorParams = @{ kXCUErrorCode: @([error code]),
-                                                   kXCUErrorMessage: [error localizedDescription],
-                                                   kIACErrorDomain: [error domain]
-                                                   };
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[parameters[kXCUError] stringByAppendingURLParams:errorParams]]];
-                }
-            };
-
-            // Handlers take precedence over the delegate
-            if (actions[action]) {
-                IACActionHandlerBlock actionHandler = actions[action];
-                actionHandler(actionParamters, success, failure);
-                return YES;
-                
-            } else if ([self.delegate supportsIACAction:action]) {
-                [self.delegate performIACAction:action
-                                     parameters:actionParamters
-                                      onSuccess:success
-                                      onFailure:failure];
-                
-                return YES;
-            }
-        } else {
+        IACFailureBlock failure = ^(NSError *error) {
             if (parameters[kXCUError]) {
-                NSDictionary *errorParams = @{ kXCUErrorCode: @(IACErrorNotSupportedAction),
-                                               kXCUErrorMessage: [NSString stringWithFormat:NSLocalizedString(@"'%@' is not an x-callback-url action supported by %@", nil), action, [self localizedAppName]],
-                                               kIACErrorDomain: IACErrorDomain
-                                             };
+                NSDictionary *errorParams = @{ kXCUErrorCode: @([error code]),
+                                               kXCUErrorMessage: [error localizedDescription],
+                                               kIACErrorDomain: [error domain]
+                                               };
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[parameters[kXCUError] stringByAppendingURLParams:errorParams]]];
-                return YES;
             }
+        };
+        
+        // Handlers take precedence over the delegate
+        if (actions[action]) {
+            IACActionHandlerBlock actionHandler = actions[action];
+            actionHandler(actionParameters, success, failure);
+            return YES;
+            
+        } else if ([self.delegate supportsIACAction:action]) {
+            [self.delegate performIACAction:action
+                                 parameters:actionParameters
+                                  onSuccess:success
+                                  onFailure:failure];
+            
+            return YES;
+        }
+    } else {
+        if (parameters[kXCUError]) {
+            NSDictionary *errorParams = @{ kXCUErrorCode: @(IACErrorNotSupportedAction),
+                                           kXCUErrorMessage: [NSString stringWithFormat:NSLocalizedString(@"'%@' is not an x-callback-url action supported by %@", nil), action, [self localizedAppName]],
+                                           kIACErrorDomain: IACErrorDomain
+                                           };
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[parameters[kXCUError] stringByAppendingURLParams:errorParams]]];
+            return YES;
         }
     }
+    
     
     
     return NO;
