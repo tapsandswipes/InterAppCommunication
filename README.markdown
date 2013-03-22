@@ -69,7 +69,7 @@ Follow these simple steps to add **x-callback-url** support to your app:
 
 1. Define the url scheme that your app will respond to in the `Info.plist` of your app. See the section **Implementing Custom URL Schemes** in [this article](http://developer.apple.com/library/ios/#DOCUMENTATION/iPhone/Conceptual/iPhoneOSProgrammingGuide/AdvancedAppTricks/AdvancedAppTricks.html#//apple_ref/doc/uid/TP40007072-CH7-SW50).
  
-2. Assign this scheme to the IACManager instance with `[IACManager sharedManager].calbackURLScheme = @"myappscheme";`. I recommend doing this in the delegate method `-application:didFinishLaunchingWithOptions:`
+2. Assign this scheme to the IACManager instance with `[IACManager sharedManager].callbackURLScheme = @"myappscheme";`. I recommend doing this in the delegate method `-application:didFinishLaunchingWithOptions:`
 
 3. Call `-handleOpenURL:` from the URL handling method in the app`s delegate. For example:
 
