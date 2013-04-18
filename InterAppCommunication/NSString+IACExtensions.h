@@ -10,10 +10,10 @@
 
 @interface NSString (IACExtensions)
 
-+ (NSString*)stringWithUUID;
++ (NSString*)IAC_stringWithUUID;
 
-- (NSString*)stringByAppendingURLParams:(NSDictionary*)params;
+- (NSString*)IAC_stringByAppendingURLParams:(NSDictionary*)params;
 
-- (NSDictionary*)parseURLParams;
+- (NSDictionary*)IAC_parseURLParams;
 
 @end
