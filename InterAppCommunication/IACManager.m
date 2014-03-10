@@ -136,10 +136,16 @@ typedef NS_ENUM(NSUInteger, IACResponseType) {
             IACSuccessBlock success = ^(NSDictionary *returnParams, BOOL cancelled) {
                 if (cancelled) {
                     if (parameters[kXCUCancel]) {
-                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:parameters[kXCUCancel]]];
+                        return [[UIApplication sharedApplication] openURL:[NSURL URLWithString:parameters[kXCUCancel]]];
+                    }
+                    else {
+                        return NO;
                     }
                 } else if (parameters[kXCUSuccess]) {
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[parameters[kXCUSuccess] stringByAppendingURLParams:returnParams]]];
+                    return [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[parameters[kXCUSuccess] stringByAppendingURLParams:returnParams]]];
+                }
+                else {
+                    return NO;
                 }
             };
             
@@ -149,7 +155,10 @@ typedef NS_ENUM(NSUInteger, IACResponseType) {
                                                    kXCUErrorMessage: [error localizedDescription],
                                                    kIACErrorDomain: [error domain]
                                                    };
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[parameters[kXCUError] stringByAppendingURLParams:errorParams]]];
+                    return [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[parameters[kXCUError] stringByAppendingURLParams:errorParams]]];
+                }
+                else {
+                    return NO;
                 }
             };
 
