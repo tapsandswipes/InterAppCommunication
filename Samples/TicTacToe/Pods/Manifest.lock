@@ -1,0 +1,10 @@
+PODS:
+  - InterAppCommunication (1.0)
+
+DEPENDENCIES:
+  - InterAppCommunication
+
+SPEC CHECKSUMS:
+  InterAppCommunication: 8b5c768edf16414947f4fae4d15a86cc38ddbf8c
+
+COCOAPODS: 0.32.1
