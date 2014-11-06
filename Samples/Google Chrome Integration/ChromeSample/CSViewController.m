@@ -46,7 +46,7 @@
         [chromeClient openURL:self.urlField.text
                     onSuccess:^{
                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success"
-                                                                        message:@"URL opened in Chrome"
+                                                                        message:@"Back from Chrome"
                                                                        delegate:nil
                                                               cancelButtonTitle:@"OK"
                                                               otherButtonTitles:nil];
