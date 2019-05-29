@@ -80,7 +80,7 @@ typedef NS_ENUM(NSUInteger, IACResponseType) {
     // If the url is an x-callback-url compatible url we handle it
     if ([url.host isEqualToString:kXCUHost]) {
         NSString     *action     = [[url path] substringFromIndex:1];
-        NSDictionary *parameters = [url.query parseURLParams];
+        NSDictionary *parameters = [url.query IAC_parseURLParams];
         NSDictionary *actionParamters = [self removeProtocolParamsFromDictionary:parameters];
         
         
@@ -139,7 +139,7 @@ typedef NS_ENUM(NSUInteger, IACResponseType) {
                         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:parameters[kXCUCancel]]];
                     }
                 } else if (parameters[kXCUSuccess]) {
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[parameters[kXCUSuccess] stringByAppendingURLParams:returnParams]]];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[parameters[kXCUSuccess] IAC_stringByAppendingURLParams:returnParams]]];
                 }
             };
             
@@ -149,7 +149,7 @@ typedef NS_ENUM(NSUInteger, IACResponseType) {
                                                    kXCUErrorMessage: [error localizedDescription],
                                                    kIACErrorDomain: [error domain]
                                                    };
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[parameters[kXCUError] stringByAppendingURLParams:errorParams]]];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[parameters[kXCUError] IAC_stringByAppendingURLParams:errorParams]]];
                 }
             };
 
@@ -173,7 +173,7 @@ typedef NS_ENUM(NSUInteger, IACResponseType) {
                                                kXCUErrorMessage: [NSString stringWithFormat:NSLocalizedString(@"'%@' is not an x-callback-url action supported by %@", nil), action, [self localizedAppName]],
                                                kIACErrorDomain: IACErrorDomain
                                              };
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[parameters[kXCUError] stringByAppendingURLParams:errorParams]]];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[parameters[kXCUError] IAC_stringByAppendingURLParams:errorParams]]];
                 return YES;
             }
         }
@@ -196,25 +196,25 @@ typedef NS_ENUM(NSUInteger, IACResponseType) {
     }
     
     NSString *final_url = [NSString stringWithFormat:@"%@://%@/%@?", request.client.URLScheme, kXCUHost, request.action];
-    final_url = [final_url stringByAppendingURLParams:request.parameters];
-    final_url = [final_url stringByAppendingURLParams:@{kXCUSource: [self localizedAppName]}];
+    final_url = [final_url IAC_stringByAppendingURLParams:request.parameters];
+    final_url = [final_url IAC_stringByAppendingURLParams:@{kXCUSource: [self localizedAppName]}];
     
     if (self.callbackURLScheme) {
         NSString *xcu = [NSString stringWithFormat:@"%@://%@/%@?", self.callbackURLScheme, kXCUHost, kIACResponse];
-        xcu = [xcu stringByAppendingURLParams:@{kIACRequest:request.requestID}];
+        xcu = [xcu IAC_stringByAppendingURLParams:@{kIACRequest:request.requestID}];
         
         NSMutableDictionary *xcu_params = [NSMutableDictionary dictionary];
         
         if (request.successCalback) {
-            xcu_params[kXCUSuccess] = [xcu stringByAppendingURLParams:@{kIACResponseType:@(IACResponseTypeSuccess)}];
-            xcu_params[kXCUCancel] = [xcu stringByAppendingURLParams:@{kIACResponseType:@(IACResponseTypeCancel)}];
+            xcu_params[kXCUSuccess] = [xcu IAC_stringByAppendingURLParams:@{kIACResponseType:@(IACResponseTypeSuccess)}];
+            xcu_params[kXCUCancel] = [xcu IAC_stringByAppendingURLParams:@{kIACResponseType:@(IACResponseTypeCancel)}];
         }
         
         if (request.errorCalback) {
-            xcu_params[kXCUError] = [xcu stringByAppendingURLParams:@{kIACResponseType:@(IACResponseTypeFailure)}];
+            xcu_params[kXCUError] = [xcu IAC_stringByAppendingURLParams:@{kIACResponseType:@(IACResponseTypeFailure)}];
         }
         
-        final_url = [final_url stringByAppendingURLParams:xcu_params];
+        final_url = [final_url IAC_stringByAppendingURLParams:xcu_params];
     } else if (request.successCalback || request.errorCalback) {
         NSLog(@"WARNING: If you want to support callbacks from the remote app you must define a URL Scheme for this app to listen on");
     }
