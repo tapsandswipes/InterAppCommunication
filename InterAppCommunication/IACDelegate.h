@@ -10,8 +10,8 @@
 
 
 // Block templates
-typedef void(^IACSuccessBlock)(NSDictionary* returnParams,BOOL cancelled);
-typedef void(^IACFailureBlock)(NSError* error);
+typedef BOOL(^IACSuccessBlock)(NSDictionary* returnParams,BOOL cancelled);
+typedef BOOL(^IACFailureBlock)(NSError* error);
 
 
 @protocol IACDelegate <NSObject>
