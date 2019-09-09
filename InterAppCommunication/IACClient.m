@@ -39,7 +39,11 @@
 }
 
 - (BOOL)isAppInstalled {
+#ifdef TARGET_OS_X
+    return false; 
+#else
     return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://Test", self.URLScheme]]];
+#endif
 }
 
 - (void)performAction:(NSString*)action {
