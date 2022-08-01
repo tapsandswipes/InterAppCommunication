@@ -1,4 +1,4 @@
-# Inter-App Communication
+# Inter-App Communication (Objective-C)
 
 ## x-callback-url made easy
 
@@ -6,6 +6,7 @@ Inter-App Communication, **IAC** from now on, is a framework that allows your iO
 
 **IAC** currently supports the **x-callback-url** [1.0 DRAFT specification](http://x-callback-url.com/specifications/).
 
+The swift version is available [here](https://github.com/tapsandswipes/Inter-AppCommunication.git)
 
 ## Usage
 
