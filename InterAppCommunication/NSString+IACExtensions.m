@@ -16,7 +16,7 @@
 
 @implementation NSString (IACExtensions)
 
-+ (NSString*)stringWithUUID {
++ (NSString*)IAC_stringWithUUID {
     CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
     NSString *uuidStr = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
     CFRelease(uuid);
@@ -25,7 +25,7 @@
 }
 
 
-- (NSDictionary*)parseURLParams {
+- (NSDictionary*)IAC_parseURLParams {
     NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
     
     NSArray *pairs = [self componentsSeparatedByString:@"&"];
@@ -40,7 +40,7 @@
     return result;
 }
 
-- (NSString*)stringByAppendingURLParams:(NSDictionary*)params {
+- (NSString*)IAC_stringByAppendingURLParams:(NSDictionary*)params {
     NSMutableString *result = [[NSMutableString alloc] init];
     
     [result appendString:self];
